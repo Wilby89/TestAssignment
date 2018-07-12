@@ -1,0 +1,29 @@
+To run the project:
+./mvnw spring-boot:run to build and run
+
+Project developed on Java 9, gave me some delightful issues with JAXB implementation
+
+Project is built using Spring shell for CLI interactivity, allowing you to leverage tab complete and normal REPL functionality
+
+Spring with JPA to connect to an in memory H2 database to persist users.
+
+Considerations:
+I did not implement the edit existing user functionality since I did not understand how it was supposed to function:
+
+Pass a firstname and surname in and then what? Search by surname in the DB and change the firstname based on firstName input?
+What about duplicate users with different ids? Since I was unsure I left it.
+
+Unit tests: I created two unit tests to generate XML and consume it, this saves you manually building an XML file to test my functionality
+
+Used maven for build, you can package as jar if you run 
+./mvnw clean package -DskipTests
+
+The run as standalone jar with java -jar target/accela-0.0.1-SNAPSHOT.jar
+
+Help menu is fully interactive, you can type help to see all commands or drill down to see a specific command:
+e.g. help add
+
+If time permitted I would have written more unit tests around the add from xml file functionality.
+
+I would also have removed spring boot and done manual wiring between spring shell and service/db classes. 
+Spring Boot allowed me to get going very quickly however.
